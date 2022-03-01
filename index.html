@@ -16,11 +16,13 @@
     <!-- css link -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <!-- body start -->
   <body>
     <section class="container">
       <!-- header start -->
       <h1 class="text-center mb-5 mt-5">Search phone by name</h1>
       <!-- header end -->
+      <!-- error handling -->
       <p id="error" class="text-center text-danger fw-bold"></p>
       <!-- search input section start -->
       <div class="input-group mb-5">
@@ -40,14 +42,15 @@
         </button>
       </div>
       <!-- search input section end -->
-      <!-- append data wen click id -->
+      <!-- append data when click id start-->
       <div id="append-id" class="row"></div>
-
-      <!-- display information on ui -->
+      <!-- append data when click id end-->
+      <!-- display information on ui div-->
       <div
         id="append-div"
-        class="row row-cols-1 row-cols-md-3 row-col-lg-4 g-4"
+        class="row row-cols-1 row-cols-md-3 row-col-lg-4 g-4 mb-5"
       ></div>
+      <!-- display information on ui div end-->
     </section>
     <!-- bootatrap js link -->
     <script
@@ -58,4 +61,5 @@
     <!-- script link -->
     <script src="js/app.js"></script>
   </body>
+  <!-- body end -->
 </html>

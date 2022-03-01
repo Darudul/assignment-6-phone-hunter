@@ -1,3 +1,4 @@
+// get all data by name
 const searchButton = () => {
   console.log("eertt");
   const searchText = document.getElementById("search-input").value;
@@ -25,7 +26,7 @@ const displySearchData = (searchs) => {
       div.classList.add("post");
       div.innerHTML = `
 
-  <div class="col">
+  <div class="col border border-light rounded">
       <div class="card">
         <img src="${search.image}" class="card-img-top" alt="..."/>
         <div class="card-body">
@@ -42,7 +43,7 @@ const displySearchData = (searchs) => {
     }
   }
 };
-
+// show data when click details
 const getDEtails = (id) => {
   console.log(id);
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
@@ -64,8 +65,9 @@ const getIdByClick = (click) => {
         
   <div class=" card-body mb-5">
           <h5 class="card-title">${click.name}</h5>
-          <p class="card-text fw-bold">
-            ${click.releaseDate}
+          <p class="card-text fw-bold">${
+            click.releaseDate ? click.releaseDate : "no release date found"
+          }
           </p>
           <p class="card-text "><span class='fw-bold' > Mainfeatures Information:</span> <br>
           storage: ${click.mainFeatures.storage}<br>
