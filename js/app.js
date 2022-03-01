@@ -13,8 +13,11 @@ const displySearchData = (searchs) => {
   console.log(searchs);
   const searchFirst20 = searchs.slice(0, 20);
   const appendDiv = document.getElementById("append-div");
+  appendDiv.textContent = "";
+  const error = document.getElementById("error");
+  error.textContent = "";
   if (searchFirst20.length == 0) {
-    document.getElementById("error").textContent = "No phone found";
+    document.getElementById("error").textContent = "no phone found";
   } else {
     for (const search of searchFirst20) {
       console.log(search);
