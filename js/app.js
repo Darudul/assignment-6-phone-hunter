@@ -55,7 +55,7 @@ const getIdByClick = (click) => {
   const div = document.createElement("div");
   div.innerHTML = `
   <div class='d-flex'>
-  <div class='col-4 col-lg-3 g-5 mb-5' >
+  <div class='col-4 col-lg-3 g- mb-5' >
   <img src="${click.image}" class="card-img-top" alt="..." />
   </div>
         <div class="card-body mb-5">
@@ -71,7 +71,7 @@ const getIdByClick = (click) => {
           </p>
 
           <p class="card-text"> <span class='fw-bold' > Sensors Information:</span> <br>
-            ${click.sensors}
+            ${click.mainFeatures.sensors}
           </p>
           <p class="card-text"> <span class='fw-bold' > Others Information:</span> <br>
             ${click.others.WLAN} <br>
