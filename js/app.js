@@ -19,11 +19,12 @@ const displySearchData = (searchs) => {
     for (const search of searchFirst20) {
       console.log(search);
       const div = document.createElement("div");
+      div.classList.add("post");
       div.innerHTML = `
 
   <div class="col">
       <div class="card">
-        <img src="${search.image}" class="card-img-top" alt="..." />
+        <img src="${search.image}" class="card-img-top" alt="..."/>
         <div class="card-body">
           <h5 class="card-title">${search.phone_name}</h5>
           <p class="card-text fw-bold">
@@ -54,11 +55,11 @@ const getIdByClick = (click) => {
 
   const div = document.createElement("div");
   div.innerHTML = `
-  <div class='d-flex'>
-  <div class='col-4 col-lg-3 g- mb-5' >
+  
+  <div class="col-12">
   <img src="${click.image}" class="card-img-top" alt="..." />
-  </div>
-        <div class="card-body mb-5">
+        
+  <div class=" card-body mb-5">
           <h5 class="card-title">${click.name}</h5>
           <p class="card-text fw-bold">
             ${click.releaseDate}
@@ -73,7 +74,7 @@ const getIdByClick = (click) => {
           <p class="card-text"> <span class='fw-bold' > Sensors Information:</span> <br>
             ${click.mainFeatures.sensors}
           </p>
-          <p class="card-text"> <span class='fw-bold' > Others Information:</span> <br>
+          <p class="card-text"> <span class='fw-bold'> Others Information:</span> <br>
             ${click.others.WLAN} <br>
             Bluetooth:  ${click.others.Bluetooth} <br>
             GPS:  ${click.others.GPS} <br>
