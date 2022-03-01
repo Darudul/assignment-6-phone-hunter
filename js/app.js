@@ -28,10 +28,12 @@ const displySearchData = (searchs) => {
 
   <div class="col border border-light rounded">
       <div class="card">
+      <div>
         <img src="${search.image}" class="card-img-top" alt="..."/>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">${search.phone_name}</h5>
-          <p class="card-text fw-bold">
+          <h5 class="card-title"><span class='fw-bold text-primary' >Phone name: </span>${search.phone_name}</h5>
+          <p class="card-text fw-bold"><span class='fw-bold text-primary' >Brand: </span>
             ${search.brand}
           </p>
         </div>
@@ -56,38 +58,64 @@ const getDEtails = (id) => {
 const getIdByClick = (click) => {
   console.log(click);
   const appendDiv = document.getElementById("append-id");
+  appendDiv.textContent = "";
 
   const div = document.createElement("div");
   div.innerHTML = `
   
-  <div class="col-12">
+  <div class="col-12 col-lg-6 mx-auto">
+  <div >
   <img src="${click.image}" class="card-img-top" alt="..." />
-        
+  </div>   
   <div class=" card-body mb-5">
           <h5 class="card-title">${click.name}</h5>
-          <p class="card-text fw-bold">${
+          <p class="card-text fw-bold"> <span class='fw-bold text-primary' >Releasedate :</span><br> ${
             click.releaseDate ? click.releaseDate : "no release date found"
           }
           </p>
-          <p class="card-text "><span class='fw-bold' > Mainfeatures Information:</span> <br>
-          storage: ${click.mainFeatures.storage}<br>
-          chipSet: ${click.mainFeatures.chipSet} <br>
-          displaySize:  ${click.mainFeatures.displaySize} <br>
-          memory:  ${click.mainFeatures.memory} <br>
-          </p>
+          <div class="card-text "><span class='fw-bold text-primary' > Mainfeatures Information:</span> <br>
+         <p> <span class='fw-bold' >storage: </span> ${
+           click.mainFeatures.storage
+         }</p>
+         <p> <span class='fw-bold' >chipSet: </span>  ${
+           click.mainFeatures.chipSet
+         } </p>
+         <p> <span class='fw-bold' >displaySize: </span>   ${
+           click.mainFeatures.displaySize
+         } </p>
+         <p> <span class='fw-bold' >memory: </span>   ${
+           click.mainFeatures.memory
+         }</p>
+          </div>
 
-          <p class="card-text"> <span class='fw-bold' > Sensors Information:</span> <br>
+          <p class="col-8 card-text"> <span class='fw-bold text-primary' > Sensors Information: </span> <br>
             ${click.mainFeatures.sensors}
           </p>
-          <p class="card-text"> <span class='fw-bold'> Others Information:</span> <br>
-            ${click.others.WLAN} <br>
-            Bluetooth:  ${click.others.Bluetooth} <br>
-            GPS:  ${click.others.GPS} <br>
-            NFC:  ${click.others.NFC} <br>
-            Radio:  ${click.others.Radio} <br>
-            USB:  ${click.others.USB} <br>
-            WLAN:  ${click.others.WLAN} <br>
-          </p>
+          
+          
+          <div class="card-text"> <span class='fw-bold text-primary'> Others Information:</span> <br>
+          <p class='fw-bold'>  Bluetooth:<span> ${
+            click.others?.Bluetooth ? click.others.Bluetooth : "no data found"
+          } </span></p>
+              
+       <p >  <span class='fw-bold' > GPS:
+       </span> 
+       ${click.others?.GPS ? click.others.GPS : "no data found"}
+       </p>
+              
+       <p >   <span class='fw-bold'>NFC: 
+        </span>${click.others?.NFC ? click.others.NFC : "no data found"} </p>
+        <p >  <span class='fw-bold'> Radio:
+        </span>${
+          click.others?.Radio ? click.others.Radio : "no data found"
+        } </p>
+               
+        <p >  <span class='fw-bold' >USB: 
+        </span> ${click.others?.USB ? click.others.USB : "no data found"}</p>
+  
+        <p >  <span class='fw-bold'> WLAN: 
+        </span>${click.others?.WLAN ? click.others.WLAN : "no data found"}</p>
+          </div>
         </div>
         </div>
   
