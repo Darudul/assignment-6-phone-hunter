@@ -25,11 +25,10 @@ const displySearchData = (searchs) => {
       const div = document.createElement("div");
       div.classList.add("post");
       div.innerHTML = `
-
   <div class="col border border-light rounded">
       <div class="card">
       <div>
-        <img src="${search.image}" class="card-img-top" alt="..."/>
+        <img class='w-75 mt-5 ms-5' src="${search.image}" class="card-img-top" alt="..."/>
         </div>
         <div class="card-body">
           <h5 class="card-title"><span class='fw-bold text-primary' >Phone name: </span>${search.phone_name}</h5>
@@ -44,8 +43,16 @@ const displySearchData = (searchs) => {
       appendDiv.appendChild(div);
     }
   }
+  // clear details information when search anthing
+  clearDetails();
 };
-// show data when click details
+
+// clear details
+const clearDetails = () => {
+  const appendDiv = document.getElementById("append-id");
+  appendDiv.textContent = "";
+};
+// show data when click details by using id
 const getDEtails = (id) => {
   console.log(id);
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
@@ -63,9 +70,12 @@ const getIdByClick = (click) => {
   const div = document.createElement("div");
   div.innerHTML = `
   
-  <div class="col-12 col-lg-6 mx-auto">
+  <div class="col-12 col-lg-6 mx-auto pb-5 bg-gradient">
+  <div class="card">
   <div >
-  <img src="${click.image}" class="card-img-top" alt="..." />
+  <img class='w-50 mt-5 ms-5 ps-5'  src="${
+    click.image
+  }" class="card-img-top" alt="..." />
   </div>   
   <div class=" card-body mb-5">
           <h5 class="card-title">${click.name}</h5>
@@ -89,14 +99,19 @@ const getIdByClick = (click) => {
           </div>
 
           <p class="col-8 card-text"> <span class='fw-bold text-primary' > Sensors Information: </span> <br>
-            ${click.mainFeatures.sensors}
+            ${click.mainFeatures.sensors[0]} <br>
+            ${click.mainFeatures.sensors[1]}<br>
+            ${click.mainFeatures.sensors[2]}<br>
+            ${click.mainFeatures.sensors[3]}<br>
+            ${click.mainFeatures.sensors[4]}<br>
+            ${click.mainFeatures.sensors[5]}
           </p>
-          
-          
+
           <div class="card-text"> <span class='fw-bold text-primary'> Others Information:</span> <br>
-          <p class='fw-bold'>  Bluetooth:<span> ${
-            click.others?.Bluetooth ? click.others.Bluetooth : "no data found"
-          } </span></p>
+          <p>  <span class='fw-bold'>Bluetooth: 
+           </span>${
+             click.others?.Bluetooth ? click.others.Bluetooth : "no data found"
+           }</p>
               
        <p >  <span class='fw-bold' > GPS:
        </span> 
@@ -118,7 +133,7 @@ const getIdByClick = (click) => {
           </div>
         </div>
         </div>
-  
+
   `;
   appendDiv.appendChild(div);
 };
